@@ -1,0 +1,38 @@
+{
+  "name": "cleanerfish",
+  "version": "1.0.0",
+  "description": "Scan code to clean up actually unused dependencies",
+  "repository": "https://github.com/giovannicampeol/cleanerfish.git",
+  "main": "bin/index.js",
+  "bin": {
+    "cleanerfish": "bin/index.js"
+  },
+  "scripts": {
+    "test": "node test"
+  },
+  "keywords": [
+    "dependecy",
+    "dependencies",
+    "clean",
+    "cleanup",
+    "prune",
+    "delete",
+    "remove",
+    "uninstall",
+    "npm",
+    "yarn",
+    "unused",
+    "import",
+    "imported",
+    "require",
+    "required",
+    "cli",
+    "command"
+  ],
+  "author": "Giovanni Campeol",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^9.4.1",
+    "strip-comments": "^2.0.1"
+  }
+}

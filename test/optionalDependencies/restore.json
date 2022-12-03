@@ -1,0 +1,13 @@
+{
+    "type": "module",
+    "dependencies": {
+        "express": "*",
+        "loadash": "*"
+    },
+    "devDependencies": {
+        "fastify": "*"
+    },
+    "optionalDependencies": {
+        "chalk": "*"
+    }
+}
