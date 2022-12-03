@@ -7,6 +7,7 @@ Cleanerfish is not the usual boring and ineffective *npm prune*. Insteat it **ac
 
 Cleanerfish is compatible with both **npm** and **yarn** package managers.
 
+![screenshot](./screenshot.png "screenshot")
 
 ### Cleanerfish Installation
 ```
