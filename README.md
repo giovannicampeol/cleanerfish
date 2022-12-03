@@ -1,5 +1,9 @@
 # Cleanerfish
 
+<p align="center">
+  <img src="./image.png" alt="cleanerfish screenshot"/>
+</p>
+
 ### About Cleanerfish
 Cleanerfish is your new favourite utility to **cleanup** your *node.js* projects from **actually unused dependencies**!
 
