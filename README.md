@@ -1,6 +1,6 @@
 # Cleanerfish
-
-<p align="center">
+<br>
+<p align="center" width="80%" height="auto">
   <img src="./image.png" alt="cleanerfish screenshot"/>
 </p>
 
@@ -11,6 +11,7 @@ Cleanerfish is not the usual boring and ineffective *npm prune*. Insteat it **ac
 
 Cleanerfish is compatible with both **npm** and **yarn** package managers.
 
+<br>
 <p align="center">
   <img src="./screenshot.png" alt="cleanerfish screenshot"/>
 </p>
