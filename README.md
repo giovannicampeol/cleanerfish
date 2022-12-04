@@ -7,7 +7,7 @@
 ### About Cleanerfish
 Cleanerfish is your new favourite utility to **cleanup** your *node.js* projects from **actually unused dependencies**!
 
-Cleanerfish is not the usual boring and ineffective *npm prune*. Insteat it **actually scans your project** to seek dependencies that are not imported/required, but are present in your *package.json* and *node_modules*, then removes them!
+Cleanerfish is not the usual boring and ineffective *npm prune*. Insteat it **actually scans your project** to seek dependencies that are **not imported/required**, but are present in your *package.json* and removes them!
 
 Cleanerfish is compatible with both **npm** and **yarn** package managers.
 
