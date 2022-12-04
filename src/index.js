@@ -19,10 +19,10 @@ program
     .command("clean [project-path]")
     .option('-y, --yes-mode', "yes mode (no confirmation required)")
     .option("-i, --ignore <string>", "ignore list of packages (coma-separated)")
-    .option('-f, --folder <string>', "specify a folder to inspect (must be a sub-folder of the project)")
-    .option('-f, --file <string>', "specify a file to inspect (must be inside the project/directory)")
-    .option('--exclude-dirs <string>', "specify a comma-separated list of directories to exclude (must be sub-folder of the project/directory)")
-    .option('--exclude-files <string>', "specify a comma-separated list of files to exclude (must be inside the project/directory)")
+    .option('-p, --folder-path <string>', "specify a folder to inspect (must be a sub-folder of the project)")
+    .option('-f, --file <string>', "specify a file to inspect (must be inside the project/main folder)")
+    .option('--exclude-dirs <string>', "specify a comma-separated list of directories to exclude (must be sub-folder of the project/main folder)")
+    .option('--exclude-files <string>', "specify a comma-separated list of files to exclude (must be inside the project/main folder)")
     .option('-c, --comments', "considers commented imports as valid (false by default)")
     .option("-o, --optional", "include optionalDependencies (false by default)")
     .option("-d, --dev", "include devDependencies (false by default)")
@@ -38,7 +38,7 @@ program
             absoluteProjectPath,
             relativeFolderPath,
             relativeProjectPath
-        } = resolveMainPaths(projectPath, options.folder)
+        } = resolveMainPaths(projectPath, options.folderPath)
 
         console.log(COLORS.FgCyan("🐟: cwd         "), process.cwd())
         console.log(COLORS.FgCyan("🐟: project     "), relativeProjectPath)

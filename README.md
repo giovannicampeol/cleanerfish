@@ -13,7 +13,7 @@ Cleanerfish is compatible with both **npm** and **yarn** package managers.
 
 <br>
 <p align="center">
-  <img src="./screenshot.png" alt="cleanerfish screenshot"/>
+  <img src="./screenshot_clean.png" alt="cleanerfish clean screenshot"/>
 </p>
 
 ### Cleanerfish Installation
@@ -49,20 +49,26 @@ cleanerfish clean --yarn
 
 #### All clean options
 ```
--y, --yes-mode            yes mode (no confirmation required)
--i, --ignore <string>     ignore list of packages (coma-separated)
--f, --folder <string>     specify a folder to inspect (must be a sub-folder of the project)
--f, --file <string>       specify a file to inspect (must be inside the project/directory)
---exclude-dirs <string>   specify a comma-separated list of directories to exclude (must be sub-folder of the project/directory)
---exclude-files <string>  specify a comma-separated list of files to exclude (must be inside the project/directory)
--c, --comments            considers commented imports as valid (false by default)
--o, --optional            include optionalDependencies (false by default)
--d, --dev                 include devDependencies (false by default)
---prevent-defaults        prevent default ignored packages from being skipped (false by default)
---yarn                    use yarn instead of npm
--h, --help                display help for command
+cleanerfish clean -h
+
+-y, --yes-mode              yes mode (no confirmation required)
+-i, --ignore <string>       ignore list of packages (coma-separated)
+-p, --folder-path <string>  specify a folder to inspect (must be a sub-folder of the project)
+-f, --file <string>         specify a file to inspect (must be inside the project/main folder)
+--exclude-dirs <string>     specify a comma-separated list of directories to exclude (must be sub-folder of the project/main folder)
+--exclude-files <string>    specify a comma-separated list of files to exclude (must be inside the project/main folder)
+-c, --comments              considers commented imports as valid sss(false by default)
+-o, --optional              include optionalDependencies (false by default)
+-d, --dev                   include devDependencies (false by default)
+--prevent-defaults          prevent default ignored packages from being skipped (false by default)
+--yarn                      use yarn instead of npm
+-h, --help                  display help for command
 ```
 #### List defaults
 ```
 cleanerfish defaults
 ```
+<br>
+<p align="center">
+  <img src="./screenshots_defaults.png" alt="cleanerfish defaults screenshot"/>
+</p>
