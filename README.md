@@ -16,17 +16,10 @@ imported/required**, but are present in your _package.json_ and removes them!
 
 Cleanerfish is compatible with both **npm** and **yarn** package managers.
 
-<!-- <p align="center">A rare picture of Cleanerfish cleaning himself:<p>
 <p align="center">
+  <p align="center">A rare picture of Cleanerfish cleaning himself:<p>
   <img src="./screenshot_clean.png" alt="cleanerfish clean screenshot"/>
-</p> -->
-
-<figure align="center">
-     <img src="./screenshot_clean.png"/>
-     <figcaption>
-          <p>A rare picture of Cleanerfish cleaning himself</p>
-     </figcaption>
- </figure>
+</p>
 
 ### Cleanerfish Installation
 
