@@ -19,7 +19,7 @@ Cleanerfish is compatible with both **npm** and **yarn** package managers.
 <br>
 <p align="center">
   <p align="center" style="font-size:12px;">A rare picture of Cleanerfish cleaning himself:<p>
-  <img src="./images/creenshot_clean.png" alt="cleanerfish clean screenshot"/>
+  <img src="./images/screenshot_clean.png" alt="cleanerfish clean screenshot"/>
 </p>
 <br>
 
