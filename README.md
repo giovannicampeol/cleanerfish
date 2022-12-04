@@ -2,7 +2,7 @@
 
 <br>
 <p align="center" width="80%" height="auto">
-  <img src="./image.png" alt="cleanerfish screenshot"/>
+  <img src="./images/cleanerfish.png" alt="cleanerfish screenshot"/>
 </p>
 
 ### About Cleanerfish
@@ -19,7 +19,7 @@ Cleanerfish is compatible with both **npm** and **yarn** package managers.
 <br>
 <p align="center">
   <p align="center" style="font-size:12px;">A rare picture of Cleanerfish cleaning himself:<p>
-  <img src="./screenshot_clean.png" alt="cleanerfish clean screenshot"/>
+  <img src="./images/creenshot_clean.png" alt="cleanerfish clean screenshot"/>
 </p>
 <br>
 
@@ -89,5 +89,5 @@ cleanerfish defaults
 ```
 
 <p align="center">
-  <img src="./screenshots_defaults.png" alt="cleanerfish defaults screenshot"/>
+  <img src="./images/screenshots_defaults.png" alt="cleanerfish defaults screenshot"/>
 </p>
