@@ -24,27 +24,27 @@ npm instal -g cleanerfish
 ### Cleanerfish Usage  
 #### Safe mode (confirmation required)
 ```
-cleanerfish
+cleanerfish clean
 ```
 
 #### Automatic mode (no confirmation required)
 ```
-cleanerfish -y
+cleanerfish clean -y
 ```
 
 #### Different project path
 ```
-cleanerfish /path/to/my/project 
+cleanerfish clean /path/to/project 
 ```
-#### Inspect specific folder
+#### Inspect specific folder inside the project
 ```
-cleanerfish -f /path/to/folder 
+cleanerfish clean -f /path/to/folder 
 ```
 
 
 #### Use yarn instead of npm
 ```
-cleanerfish --yarn
+cleanerfish clean --yarn
 ```
 
 #### All options

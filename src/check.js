@@ -14,6 +14,7 @@ module.exports.checkDependeciesUsageForEachFile = (dependenciesToCheck, filesToI
         const formattedFileContent = strip(fileContent)
             .replace(/\s/g, "")
             .replace(/\t/g, "")
+            .replace(/\n/g, "")
 
         dependenciesByFile[file] = []
         dependenciesToCheck.forEach(dep => {
@@ -29,56 +30,29 @@ module.exports.checkDependeciesUsageForEachFile = (dependenciesToCheck, filesToI
 //TODO complete list of import strings
 const isDependencyUsedInFile = (fileContent, dep) => {
     const matches = [
+        //es
         `from"${dep}`,
         `from'${dep}`,
         "from`" + dep,
         `from“${dep}`,
         `from'${dep}`,
 
+        //commonjs
         `require("${dep}`,
         `require('${dep}`,
         "require(`" + dep,
         `require(“${dep}`,
         `require('${dep}`,
+
+        //coffeescript
+        `require"${dep}`,
+        `require'${dep}`,
+        "require`" + dep,
+        `require“${dep}`,
+        `require'${dep}`,
     ]
 
     return matches
         .map(match => fileContent.includes(match))
         .includes(true)
 }
-
-// const excludeComments = (content) => {
-//     return excludeMultiLineComments(excludeSingleLineComments(content))
-// }
-
-// const excludeSingleLineComments = (content) => {
-//     return content
-//         .split("\n")
-//         .filter(line => !line.startsWith("//"))
-//         .map(line => {
-//             return line
-//                 .trim()
-//                 .split("//")[0]
-//         })
-//         .join("\n")
-// }
-
-// const excludeMultiLineComments = (content) => {
-//     let hasMoreComments = false
-
-//     do {
-//         const commentStart = content.indexOf("/*")
-//         const commentEnd = content.indexOf("*/")
-
-//         if (commentStart > commentEnd) {
-//             console.log(COLORS.FgRed(`🐟! looks like there's something wrong in your comments -- POP`))
-//             process.exit(1)
-//         }
-
-//         content = content.slice(0, commentStart) + content.slice(commentEnd + 2)
-        
-//         hasMoreComments = content.indexOf("/*") < 0 ? false : true
-//     } while (hasMoreComments)
-
-//     return content
-// }

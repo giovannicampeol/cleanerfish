@@ -50,7 +50,7 @@ const tests = fs
 tests.forEach(test => {
     try {
         console.log(COLORS.FgYellow(`> test: ${test.split("/")[test.split("/").length - 1]}`))
-        child.execSync(`node ${path.join(cwd, "bin")} ${test} -ydo`)
+        child.execSync(`node ${path.join(cwd, "bin clean")} ${test} -ydo`)
         check(test)
     } catch (err) {
         restore(test)
