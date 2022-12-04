@@ -90,7 +90,7 @@ program
     })
 
 
-program.command("list-defaults")
+program.command("defaults")
     .action(() => {
         printTitle()
         console.log(COLORS.FgCyan(`🐟: default ignored directories`))

@@ -47,17 +47,22 @@ cleanerfish clean -f /path/to/folder
 cleanerfish clean --yarn
 ```
 
-#### All options
+#### All clean options
 ```
 -y, --yes-mode            yes mode (no confirmation required)
 -i, --ignore <string>     ignore list of packages (coma-separated)
--d, --directory <string>  specify a folder to inspect (must be a sub-folder of the project)
+-f, --folder <string>     specify a folder to inspect (must be a sub-folder of the project)
 -f, --file <string>       specify a file to inspect (must be inside the project/directory)
---exclude-dirs <string>   specify a coma-separated list of directories to exclude (must be sub-folder of the project/directory)
---exclude-files <string>  specify a coma-separated list of files to exclude (must be inside the project/directory)
--o, --optional            include optionalDependencies
--d, --dev                 include devDependencies
+--exclude-dirs <string>   specify a comma-separated list of directories to exclude (must be sub-folder of the project/directory)
+--exclude-files <string>  specify a comma-separated list of files to exclude (must be inside the project/directory)
+-c, --comments            considers commented imports as valid (false by default)
+-o, --optional            include optionalDependencies (false by default)
+-d, --dev                 include devDependencies (false by default)
+--prevent-defaults        prevent default ignored packages from being skipped (false by default)
 --yarn                    use yarn instead of npm
 -h, --help                display help for command
 ```
-
+#### List defaults
+```
+cleanerfish defaults
+```
