@@ -68,7 +68,6 @@ cleanerfish clean -h
 ```
 cleanerfish defaults
 ```
-<br>
 <p align="center">
   <img src="./screenshots_defaults.png" alt="cleanerfish defaults screenshot"/>
 </p>
