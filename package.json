@@ -27,7 +27,9 @@
     "require",
     "required",
     "cli",
-    "command"
+    "command",
+    "node",
+    "project"
   ],
   "author": "Giovanni Campeol",
   "license": "MIT",
