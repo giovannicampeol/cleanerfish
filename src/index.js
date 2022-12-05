@@ -43,8 +43,8 @@ program
         console.log(COLORS.FgCyan("🐟: cwd         "), process.cwd())
         console.log(COLORS.FgCyan("🐟: project     "), relativeProjectPath)
         console.log(COLORS.FgCyan("🐟: folder      "), relativeFolderPath)
-        console.log(COLORS.FgCyan("🐟: dev         "), `${!!options.dev}`)
-        console.log(COLORS.FgCyan("🐟: optional    "), `${!!options.optional}`)
+        console.log(COLORS.FgCyan("🐟: dev         "), options.dev ? "yes" : "no")
+        console.log(COLORS.FgCyan("🐟: optional    "), options.optional ? "yes" : "no")
 
         //get dependingies and filter ignore list
         const packageJsonPath = path.join(absoluteProjectPath, "package.json")
