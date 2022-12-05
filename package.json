@@ -1,7 +1,7 @@
 {
   "name": "cleanerfish",
   "version": "0.0.1-alpha.0",
-  "description": "Scan code to clean up actually unused dependencies",
+  "description": "Scan your code to clean up actually unused dependencies",
   "repository": "https://github.com/twoojoo/cleanerfish.git",
   "main": "bin/index.js",
   "bin": {
