@@ -31,7 +31,7 @@
     "node",
     "project"
   ],
-  "author": "Giovanni Campeol",
+  "author": "twoojoo",
   "license": "MIT",
   "dependencies": {
     "commander": "^9.4.1",
