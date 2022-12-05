@@ -31,8 +31,6 @@ npm instal -g cleanerfish
 
 ### Cleanerfish Usage
 
-#### Clean
-
 **Safe mode (confirmation required)**
 
 ```
@@ -82,7 +80,7 @@ cleanerfish clean -h
 -h, --help                  display help for command
 ```
 
-#### List defaults
+**List defaults**
 
 ```
 cleanerfish defaults
