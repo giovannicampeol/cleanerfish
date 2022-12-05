@@ -1,6 +1,6 @@
 
 <br>
-<p align="center" width="100%" height="auto">
+<p align="center">
   <img src="./images/cleanerfish.png" alt="cleanerfish screenshot"/>
 </p>
 
