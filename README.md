@@ -1,10 +1,10 @@
 
 <br>
-<p align="center" width="80%" height="auto">
+<p align="center" width="100%" height="auto">
   <img src="./images/cleanerfish.png" alt="cleanerfish screenshot"/>
 </p>
-# Cleanerfish
 
+# Cleanerfish
 
 ### About Cleanerfish
 
