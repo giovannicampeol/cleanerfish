@@ -15,7 +15,7 @@ Cleanerfish is not the usual boring and ineffective _npm prune_. Insteat it
 **actually scans your project** to seek dependencies that are **not
 imported/required**, but are present in your _package.json_ and removes them!
 
-Cleanerfish is compatible with both **npm** and **yarn** package managers.
+Cleanerfish is compatible with both **npm** and **yarn** package managers and supports **require**, **import** and **coffeescript** syntaxes.
 
 <br>
 <p align="center">

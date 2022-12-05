@@ -43,6 +43,8 @@ program
         console.log(COLORS.FgCyan("🐟: cwd         "), process.cwd())
         console.log(COLORS.FgCyan("🐟: project     "), relativeProjectPath)
         console.log(COLORS.FgCyan("🐟: folder      "), relativeFolderPath)
+        console.log(COLORS.FgCyan("🐟: dev         "), `${!!options.dev}`)
+        console.log(COLORS.FgCyan("🐟: optional    "), `${!!options.optional}`)
 
         //get dependingies and filter ignore list
         const packageJsonPath = path.join(absoluteProjectPath, "package.json")
@@ -61,7 +63,7 @@ program
         console.log(COLORS.FgCyan("🐟: addressed    ") + dependenciesToCheck.join(", ") + "\n")
 
         //inspect folder files and list dependencies
-        const {foldersToExclude, filesToExclude} = resolveExcludedPaths(options, absoluteFolderPath)
+        const { foldersToExclude, filesToExclude } = resolveExcludedPaths(options, absoluteFolderPath)
         const filesToInspect = getAllFilesInFolderAndSubfolder(absoluteFolderPath, formats, foldersToExclude, filesToExclude)
         const dependenciesByFile = checkDependeciesUsageForEachFile(dependenciesToCheck, filesToInspect, absoluteProjectPath)
 

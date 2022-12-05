@@ -8,7 +8,6 @@
     "cleanerfish": "bin/index.js"
   },
   "scripts": {
-    "prepare": "npm run test",
     "test": "node test"
   },
   "keywords": [
