@@ -73,7 +73,7 @@ cleanerfish clean -h
 -f, --file <string>         specify a file to inspect (must be inside the project/main folder)
 --exclude-dirs <string>     specify a comma-separated list of directories to exclude (must be sub-folder of the project/main folder)
 --exclude-files <string>    specify a comma-separated list of files to exclude (must be inside the project/main folder)
--c, --comments              considers commented imports as valid sss(false by default)
+-c, --comments              considers commented imports as valid (false by default)
 -o, --optional              include optionalDependencies (false by default)
 -d, --dev                   include devDependencies (false by default)
 --prevent-defaults          prevent default ignored packages from being skipped (false by default)
