@@ -1,7 +1,7 @@
 
 <br>
-<p align="center">
-  <img src="./images/cleanerfish.png" alt="cleanerfish screenshot"/>
+<p align="center" width="100%"  height="auto">
+  <img src="./images/cleanerfish.png" alt="cleanerfish screenshot" width="80%" height="auto"/>
 </p>
 
 # Cleanerfish
