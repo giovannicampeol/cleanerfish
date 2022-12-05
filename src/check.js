@@ -50,6 +50,11 @@ const isDependencyUsedInFile = (fileContent, dep) => {
         "require`" + dep,
         `require“${dep}`,
         `require'${dep}`,
+        `import("${dep}`,
+        `import('${dep}`,
+        "import(`" + dep,
+        `import(“${dep}`,
+        `import('${dep}`,
     ]
 
     return matches
