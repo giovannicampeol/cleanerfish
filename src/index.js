@@ -82,7 +82,7 @@ program
                     return true
                 })
 
-            console.log(COLORS.FgRed("🐟: unimported   ") + filesToRemove.map(f => f.relative).join(", "))
+            console.log(COLORS.FgRed("🐟: unused       ") + filesToRemove.map(f => f.relative).join(", "))
 
             for (let file of filesToRemove) {
                 const { absolute, relative } = file
@@ -139,7 +139,7 @@ program
             }
         }
 
-        process.stdout._write(COLORS.FgGreen(`🐟: done.\n`))
+        process.stdout._write(COLORS.Bright(COLORS.BgGreen(COLORS.FgWhite(`   🐟   `))) + "\n")
     })
 
 
