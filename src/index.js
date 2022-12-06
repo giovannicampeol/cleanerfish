@@ -121,7 +121,7 @@ program
         //find unused dependencies
         const usedDependencies = [...new Set(Object.values(dependenciesByFile).flat())]
         const unusedDependencies = dependenciesToCheck.filter(x => !usedDependencies.includes(x)).sort();
-        console.log(COLORS.FgRed("🐟: unused       ") + (unusedDependencies[0] ? unusedDependencies.join(", ") : "no unused dependecies") + "\n")
+        console.log(COLORS.FgRed("🐟: unused       ") + unusedDependencies.join(", ") + "\n")
 
         //remove unused dependencies
         const packageManager = options.yarn ? "yarn" : "npm"
