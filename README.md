@@ -5,17 +5,26 @@
   <img src="./images/cleanerfish.png" alt="cleanerfish screenshot" width="80%" height="auto"/>
 </p>
 
-
 ### About Cleanerfish
 
 Cleanerfish is your new favourite utility to **cleanup** your _node.js_ projects
-from **actually unused dependencies**!
+from **actually unused files and dependencies**!
+
+#### Dependencies
 
 Cleanerfish is not the usual boring and ineffective _npm prune_. Insteat it
 **actually scans your project** to seek dependencies that are **not
 imported/required**, but are present in your _package.json_ and removes them!
 
-Cleanerfish is compatible with both **npm** and **yarn** package managers and supports **require**, **import** and **coffeescript** syntaxes.
+#### Files (hard mode)
+
+Cleanerfish can also scan your project to prune it from all **files that are not
+imported/required** in the filnal bundle (*--hard* or *--hard-only*). Just remember to always provide the
+list of entrypoints of your project (usualy not imported by something else) to
+prevent Cleanerfish to eat them up too!: just use the *--exclude-hard* option.
+
+Cleanerfish is compatible with both **npm** and **yarn** package managers and
+supports **require**, **import** and **coffeescript** syntaxes.
 
 <br>
 <p align="center">

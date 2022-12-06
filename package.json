@@ -35,6 +35,7 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^9.4.1",
-    "strip-comments": "^2.0.1"
+    "strip-comments": "^2.0.1",
+    "trucker": "^1.1.2"
   }
 }

@@ -6,10 +6,14 @@ const COLORS = require("./colors")
 const { name, version } = require("../package.json")
 const { checkDependeciesUsageForEachFile } = require("./check")
 const { getAllFilesInFolderAndSubfolder } = require("./inspect")
-const { removeDependencies } = require("./remove");
+const { removeDependencies, removeFile } = require("./remove");
 const { resolveMainPaths, resolveExcludedPaths } = require("./path")
 const { askQuestion } = require("./question")
-const { formats, defaultIgnored, defaultIgnoredDirs } = require("./constants")
+const { formats, defaultIgnored, defaultIgnoredDirs } = require("./constants");
+const child = require("child_process");
+
+const programPath = path.resolve(__dirname)
+const TRUCKER_PATH = path.join(programPath, "..", "node_modules", "trucker", "cli")
 
 const printTitle = () => console.log("\n" + COLORS.BgYellow(COLORS.FgMagenta(COLORS.Bright(` Cleanerfish v${version} `))) + "\n")
 
@@ -26,6 +30,9 @@ program
     .option('-c, --comments', "considers commented imports as valid (false by default)")
     .option("-o, --optional", "include optionalDependencies (false by default)")
     .option("-d, --dev", "include devDependencies (false by default)")
+    .option("--hard", "remove unimported/unrequired project files too")
+    .option("--hard-only", "remove unimported/unrequired project files too")
+    .option("--exclude-hard <string>", "prevent files files from being removed in hard/hard-only mode (e.g. project entrypoints)")
     .option("--prevent-defaults", "prevent default ignored packages from being skipped (false by default)")
     .option('--yarn', "use yarn instead of npm")
     .action(async (projectPath, options) => {
@@ -40,11 +47,56 @@ program
             relativeProjectPath
         } = resolveMainPaths(projectPath, options.folderPath)
 
+
+        const {
+            foldersToExclude,
+            filesToExclude,
+            filesToExcludeHard,
+            foldersToExcludeHard
+        } = resolveExcludedPaths(options, absoluteFolderPath)
+
         console.log(COLORS.FgCyan("🐟: cwd         "), process.cwd())
         console.log(COLORS.FgCyan("🐟: project     "), relativeProjectPath)
         console.log(COLORS.FgCyan("🐟: folder      "), relativeFolderPath)
-        console.log(COLORS.FgCyan("🐟: dev         "), options.dev ? "yes" : "no")
-        console.log(COLORS.FgCyan("🐟: optional    "), options.optional ? "yes" : "no")
+        !options.hardOnly && console.log(COLORS.FgCyan("🐟: dev         "), options.dev ? "yes" : "no")
+        !options.hardOnly && console.log(COLORS.FgCyan("🐟: optional    "), options.optional ? "yes" : "no")
+
+
+        //HARD MODE
+        if (options.hard || options.hardOnly) {
+            console.log("\n" + COLORS.BgRed(COLORS.FgWhite(" HARD MODE START ")))
+            console.log(COLORS.FgCyan("\n🐟: ignored      ") + options.excludeHard.replace(/,/g, ", "))
+            const truckerOutput = child.execSync(`node ${TRUCKER_PATH} --unused`).toString("utf-8")
+            const truckeFileList = truckerOutput
+                .split("\n")
+                .filter(file => file)
+                .map(file => ({
+                    relative: file,
+                    absolute: path.join(projectPath, file)
+                }))
+
+            const filesToRemove = truckeFileList
+                .filter(filePath => {
+                    if (foldersToExcludeHard.map(folderPath => filePath.absolute.includes(folderPath + "/")).find(r => r)) return false
+                    if (filesToExcludeHard.includes(filePath.absolute)) return false
+                    return true
+                })
+
+            console.log(COLORS.FgRed("🐟: unimported   ") + filesToRemove.map(f => f.relative).join(", "))
+
+            for (let file of filesToRemove) {
+                const { absolute, relative } = file
+
+                if (options.yesMode) removeFile(absolute, absoluteFolderPath)
+                else {
+                    const response = await askQuestion(COLORS.FgYellow("\n🐟? remove       " + relative + "? (y/n)"))
+                    if (["Y", "y"].includes(response)) removeFile(absolute, absoluteFolderPath)
+                }
+            }
+
+            console.log("\n" + COLORS.BgRed(COLORS.FgWhite(" HARD MODE END ")) + "\n")
+            if (options.hardOnly) process.exit(0)
+        }
 
         //get dependingies and filter ignore list
         const packageJsonPath = path.join(absoluteProjectPath, "package.json")
@@ -63,7 +115,6 @@ program
         console.log(COLORS.FgCyan("🐟: addressed    ") + dependenciesToCheck.join(", ") + "\n")
 
         //inspect folder files and list dependencies
-        const { foldersToExclude, filesToExclude } = resolveExcludedPaths(options, absoluteFolderPath)
         const filesToInspect = getAllFilesInFolderAndSubfolder(absoluteFolderPath, formats, foldersToExclude, filesToExclude)
         const dependenciesByFile = checkDependeciesUsageForEachFile(dependenciesToCheck, filesToInspect, absoluteProjectPath)
 

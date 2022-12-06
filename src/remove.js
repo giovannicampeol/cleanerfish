@@ -15,10 +15,10 @@ module.exports.removeDependencies = (packageJsonPath, dependencies, packageManag
         try {
             switch (packageManager) {
                 case "npm":
-                    isRemoved = execRemoveCommand(`npm --prefix ${packageJsonPath} remove ${dep}`)
+                    isRemoved = execRemoveDependencyCommand(`npm --prefix ${packageJsonPath} remove ${dep}`)
                     break
                 case "yarn":
-                    isRemoved = execRemoveCommand(`yarn remove --cwd ${packageJsonPath} ` + dep)
+                    isRemoved = execRemoveDependencyCommand(`yarn remove --cwd ${packageJsonPath} ` + dep)
                     break
                 default:
                     console.log(COLORS.FgRed(" ❌"))
@@ -44,7 +44,7 @@ module.exports.removeDependencies = (packageJsonPath, dependencies, packageManag
     console.log()
 }
 
-const execRemoveCommand = (cmd) => {
+const execRemoveDependencyCommand = (cmd) => {
     try {
         child.execSync(cmd, { stdio: "pipe" })
         return true
@@ -52,3 +52,16 @@ const execRemoveCommand = (cmd) => {
         return false
     }
 }
+
+module.exports.removeFile = (filePath, absFolderPath) => {
+    try {
+        process.stdout._write(COLORS.FgRed("🐟: removing     ") + "." + filePath.split(absFolderPath)[1])
+        child.execSync("rm -f " + filePath, { stdio: "pipe" })
+        process.stdout._write(COLORS.FgGreen(" ✓\n" ))
+    } catch (err) {
+        process.stdout._write(COLORS.FgRed("❌\n"))
+        throw err
+    }
+}
+
+

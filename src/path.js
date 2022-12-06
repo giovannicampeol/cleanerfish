@@ -59,8 +59,38 @@ module.exports.resolveExcludedPaths = (options, absoluteFolderPath) => {
         }
     })
 
+    const acc = {files: [], dirs: []} 
+    const array = options?.excludeHard || []
+    array
+        .split(",")
+        .filter(p => p)
+        .map(p => path.join(absoluteFolderPath, p))
+        .forEach(p => {
+            if (fs.lstatSync(p).isDirectory()) acc.dirs.push(p)
+            else acc.files.push(p)
+        })
+    const filesToExcludeHard = acc.files
+    const foldersToExcludeHard = acc.dirs
+
+    filesToExcludeHard.forEach(f => {
+        if (!fs.existsSync(f)) {
+            console.log(f)
+            console.log(COLORS.FgRed("🐟! excluded files must be inside the specified project/directory -- POP!"))
+            process.exit(1)
+        }
+    })
+
+    foldersToExcludeHard.forEach(f => {
+        if (!fs.existsSync(f)) {
+            console.log(COLORS.FgRed("🐟! excluded directories must be sub-folder of the project/directory -- POP!"))
+            process.exit(1)
+        }
+    })
+
     return {
         filesToExclude,
-        foldersToExclude
+        foldersToExclude,
+        filesToExcludeHard,
+        foldersToExcludeHard
     }
 }
