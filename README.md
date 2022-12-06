@@ -19,9 +19,10 @@ imported/required**, but are present in your _package.json_ and removes them!
 #### Files (hard mode)
 
 Cleanerfish can also scan your project to prune it from all **files that are not
-imported/required** in the filnal bundle (*--hard* or *--hard-only*). Just remember to always provide the
-list of entrypoints of your project (usualy not imported by something else) to
-prevent Cleanerfish to eat them up too!: just use the *--exclude-hard* option.
+imported/required** in the filnal bundle (_--hard_ or _--hard-only_). Just
+remember to always provide the list of entrypoints of your project (usualy not
+imported by something else) to prevent Cleanerfish to eat them up too - just use
+the _--exclude-hard_ option.
 
 Cleanerfish is compatible with both **npm** and **yarn** package managers and
 supports **require**, **import** and **coffeescript** syntaxes.
