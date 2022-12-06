@@ -78,15 +78,18 @@ cleanerfish clean --yarn
 cleanerfish clean -h
 
 -y, --yes-mode              yes mode (no confirmation required)
--i, --ignore <string>       ignore list of packages (coma-separated)
 -p, --folder-path <string>  specify a folder to inspect (must be a sub-folder of the project)
 -f, --file <string>         specify a file to inspect (must be inside the project/main folder)
+-i, --ignore <string>       ignore list of packages (comma-separated)
+--prevent-defaults          prevent default ignored packages from being skipped (false by default)
 --exclude-dirs <string>     specify a comma-separated list of directories to exclude (must be sub-folder of the project/main folder)
 --exclude-files <string>    specify a comma-separated list of files to exclude (must be inside the project/main folder)
 -c, --comments              considers commented imports as valid (false by default)
 -o, --optional              include optionalDependencies (false by default)
 -d, --dev                   include devDependencies (false by default)
---prevent-defaults          prevent default ignored packages from being skipped (false by default)
+--hard                      remove unimported/unrequired project files too
+--hard-only                 hard mode only
+--exclude-hard <string>     prevent comma-separated files from being removed in hard/hard-only mode (e.g. project entrypoints)
 --yarn                      use yarn instead of npm
 -h, --help                  display help for command
 ```
