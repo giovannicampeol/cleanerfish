@@ -42,42 +42,19 @@ npm instal -g cleanerfish
 
 ### Cleanerfish Usage
 
-**Safe mode (confirmation required)**
-
+**Safe (confirmation required)**
 ```
 cleanerfish clean
 ```
 
-**Automatic mode (no confirmation required)**
-
+**Automatic (no confirmation required)**
 ```
 cleanerfish clean -y
 ```
 
-**Different project path**
+**Other options**
 
 ```
-cleanerfish clean /path/to/project
-```
-
-**Inspect specific folder path inside the project**
-
-```
-cleanerfish clean -p /path/to/folder
-```
-
-**Use yarn instead of npm**
-
-```
-cleanerfish clean --yarn
-```
-
-**All clean options**
-
-```
-cleanerfish clean -h
-
--y, --yes-mode              yes mode (no confirmation required)
 -p, --folder-path <string>  specify a folder to inspect (must be a sub-folder of the project)
 -f, --file <string>         specify a file to inspect (must be inside the project/main folder)
 -i, --ignore <string>       ignore list of packages (comma-separated)
@@ -87,11 +64,17 @@ cleanerfish clean -h
 -c, --comments              considers commented imports as valid (false by default)
 -o, --optional              include optionalDependencies (false by default)
 -d, --dev                   include devDependencies (false by default)
---hard                      remove unimported/unrequired project files too
---hard-only                 hard mode only
---exclude-hard <string>     prevent comma-separated files from being removed in hard/hard-only mode (e.g. project entrypoints)
 --yarn                      use yarn instead of npm
--h, --help                  display help for command
+```
+
+**Hard mode**
+
+Hard mode removes unused project files <u>before</u> scanning it for unimported dependencies. 
+```
+cleanerfish clean --hard
+
+--hard-only                 hard mode only (skip dependencies cleanup)
+--exclude-hard <string>     prevent comma-separated files from being removed in hard/hard-only mode (e.g. project entrypoints)
 ```
 
 **List defaults**

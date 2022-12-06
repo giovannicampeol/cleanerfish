@@ -32,7 +32,7 @@ program
     .option("-o, --optional", "include optionalDependencies (false by default)")
     .option("-d, --dev", "include devDependencies (false by default)")
     .option("--hard", "remove unimported/unrequired project files too")
-    .option("--hard-only", "hard mode only")
+    .option("--hard-only", "hard mode only (skip dependencies cleanup)")
     .option("--exclude-hard <string>", "prevent comma-separated files from being removed in hard/hard-only mode (e.g. project entrypoints)")
     .option('--yarn', "use yarn instead of npm")
     .action(async (projectPath, options) => {
