@@ -37,5 +37,13 @@
     "commander": "^9.4.1",
     "strip-comments": "^2.0.1",
     "trucker": "^1.1.2"
-  }
+  },
+  "files":[
+    "src",
+    "bin",
+    "package.json",
+    "package-lock.json",
+    "LICENSE",
+    "README.md"
+  ]
 }
