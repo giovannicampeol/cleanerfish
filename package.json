@@ -1,7 +1,7 @@
 {
   "name": "cleanerfish",
   "version": "0.0.4-alpha.0",
-  "description": "Scan your code to clean up actually unused dependencies",
+  "description": "Scan your code to clean up actually unused files and dependencies",
   "repository": "https://github.com/twoojoo/cleanerfish.git",
   "main": "bin/index.js",
   "bin": {
@@ -26,10 +26,18 @@
     "imported",
     "require",
     "required",
+    "unimported",
+    "unrequired",
     "cli",
     "command",
     "node",
-    "project"
+    "project",
+    "files",
+    "ts",
+    "js",
+    "typescript",
+    "javascript",
+    "coffeescript"
   ],
   "author": "twoojoo",
   "license": "MIT",
