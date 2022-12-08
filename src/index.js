@@ -142,7 +142,6 @@ program
         process.stdout._write(COLORS.Bright(COLORS.BgGreen(COLORS.FgWhite(`   🐟   `))) + "\n")
     })
 
-
 program.command("defaults")
     .action(() => {
         printTitle()
@@ -152,6 +151,9 @@ program.command("defaults")
         console.log("   ", defaultIgnored.sort().join(", "))
         console.log(COLORS.FgYellow(`\n🐟! consider putting them in devDependencies\n    and using the --prevent-defaults flag as\n    best practise`))
     })
+
+
+program.option("-v, --version", "show cleanerfish version").action(() => process.stdout.write("v"+version))
 
 module.exports = program
 
