@@ -60,12 +60,12 @@ module.exports.resolveExcludedPaths = (options, absoluteFolderPath) => {
     })
 
     const acc = { files: [], dirs: [] }
-    const array = options?.excludeHard
+    const array = options?.excludeHard || ""
+
+    array
         .split(",")
         .filter(p => p)
-        .map(p => path.join(absoluteFolderPath, p)) || []
-        
-    array
+        .map(p => path.join(absoluteFolderPath, p))
         .forEach(p => {
             if (fs.lstatSync(p).isDirectory()) acc.dirs.push(p)
             else acc.files.push(p)
