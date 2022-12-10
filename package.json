@@ -1,6 +1,6 @@
 {
   "name": "cleanerfish",
-  "version": "0.0.4-alpha.0",
+  "version": "0.0.6",
   "description": "Scan your code to clean up actually unused files and dependencies",
   "repository": "https://github.com/twoojoo/cleanerfish.git",
   "main": "bin/index.js",
@@ -11,8 +11,6 @@
     "test": "node test"
   },
   "keywords": [
-    "dependecy",
-    "dependencies",
     "clean",
     "cleanup",
     "prune",

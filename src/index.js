@@ -153,7 +153,18 @@ program.command("defaults")
     })
 
 
-program.option("-v, --version", "show cleanerfish version").action(() => process.stdout.write("v"+version))
+program.option("-v, --version", "show cleanerfish version").action((options) => {
+
+    options.version && process.stdout.write("v" + version)
+    !options.version && console.log(`
+Options:
+    -v, --version                   show cleanerfish version
+    -h, --help                      display help for command
+
+Commands:
+    clean [options] [project-path]
+    defaults`)
+})
 
 module.exports = program
 
